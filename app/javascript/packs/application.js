@@ -21,4 +21,4 @@ require("channels")
 //= require bootstrap
 //= require jquery_ujs
 require("shopify_app")
-require("customjs/customadddel")//add del controls
+
