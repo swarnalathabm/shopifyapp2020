@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customertype: MyString
+  customername: MyString
+  customeremail: MyString
+  reviewrating: 1
+  reviewbody: MyString
+  publish: MyString
+  productid: 1
+  reviewid: 1
+
+two:
+  customertype: MyString
+  customername: MyString
+  customeremail: MyString
+  reviewrating: 1
+  reviewbody: MyString
+  publish: MyString
+  productid: 1
+  reviewid: 1

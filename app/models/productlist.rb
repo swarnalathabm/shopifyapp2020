@@ -1,0 +1,2 @@
+class Productlist < ApplicationRecord
+end

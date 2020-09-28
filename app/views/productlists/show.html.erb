@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @productlist.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @productlist.body %>
+</p>
+
+<p>
+  <strong>Option1:</strong>
+  <%= @productlist.option1 %>
+</p>
+
+<p>
+  <strong>Option2:</strong>
+  <%= @productlist.option2 %>
+</p>
+
+<p>
+  <strong>Option3:</strong>
+  <%= @productlist.option3 %>
+</p>
+
+<p>
+  <strong>Option1val:</strong>
+  <%= @productlist.option1val %>
+</p>
+
+<p>
+  <strong>Option2val:</strong>
+  <%= @productlist.option2val %>
+</p>
+
+<p>
+  <strong>Option3val:</strong>
+  <%= @productlist.option3val %>
+</p>
+
+<%= link_to 'Edit', edit_productlist_path(@productlist) %> |
+<%= link_to 'Back', productlists_path %>

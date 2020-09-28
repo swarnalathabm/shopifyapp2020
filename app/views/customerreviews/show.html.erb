@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customertype:</strong>
+  <%= @customerreview.customertype %>
+</p>
+
+<p>
+  <strong>Customername:</strong>
+  <%= @customerreview.customername %>
+</p>
+
+<p>
+  <strong>Customeremail:</strong>
+  <%= @customerreview.customeremail %>
+</p>
+
+<p>
+  <strong>Reviewrating:</strong>
+  <%= @customerreview.reviewrating %>
+</p>
+
+<p>
+  <strong>Reviewbody:</strong>
+  <%= @customerreview.reviewbody %>
+</p>
+
+<p>
+  <strong>Publish:</strong>
+  <%= @customerreview.publish %>
+</p>
+
+<p>
+  <strong>Productid:</strong>
+  <%= @customerreview.productid %>
+</p>
+
+<p>
+  <strong>Reviewid:</strong>
+  <%= @customerreview.reviewid %>
+</p>
+
+<%= link_to 'Edit', edit_customerreview_path(@customerreview) %> |
+<%= link_to 'Back', customerreviews_path %>

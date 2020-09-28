@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Productlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Option1</th>
+      <th>Option2</th>
+      <th>Option3</th>
+      <th>Option1val</th>
+      <th>Option2val</th>
+      <th>Option3val</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @productlists.each do |productlist| %>
+      <tr>
+        <td><%= productlist.title %></td>
+        <td><%= productlist.body %></td>
+        <td><%= productlist.option1 %></td>
+        <td><%= productlist.option2 %></td>
+        <td><%= productlist.option3 %></td>
+        <td><%= productlist.option1val %></td>
+        <td><%= productlist.option2val %></td>
+        <td><%= productlist.option3val %></td>
+        <td><%= link_to 'Show', productlist %></td>
+        <td><%= link_to 'Edit', edit_productlist_path(productlist) %></td>
+        <td><%= link_to 'Destroy', productlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Productlist', new_productlist_path %>

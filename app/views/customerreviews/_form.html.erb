@@ -1,0 +1,57 @@
+<%= form_with(model: [@tagcreation, customerreview], local: true) do |form| %>
+  <% if customerreview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customerreview.errors.count, "error") %> prohibited this customerreview from being saved:</h2>
+
+      <ul>
+        <% customerreview.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table border ="1" ><tr><td colspan="3" align ="center">Product Details</td></tr> 
+  <% @tagcreations.each do  |tagcreation| %>
+  <tr>
+        <td><%= tagcreation.producttitle %></td>
+        <td><%= tagcreation.productoption %></td>
+        <td><%= tagcreation.productvalue %></td>
+    </tr>
+    <% end %>
+  </table>
+<br/>
+ <table caption ="Customer Details" border ="1" >
+   <tr> <td> <%= form.label :customertype %>
+    <%= form.select :customertype, ["Guest","Existing Customer"] %></td>
+<td>
+    <%= form.label :customername %>
+    <%= form.text_field :customername %></td><td>
+    <%= form.label :customeremail %>
+    <%= form.text_field :customeremail %></td>
+     <%= form.hidden_field :publish , value:'No' %>
+      <%= form.hidden_field :productid , value:'1' %>
+         <%= form.hidden_field :reviewid ,value:'1' %>
+  </tr>
+</table><br/><br/>
+
+<table border="1"><tr><td colspan="2">
+    <%= form.label :reviewrating %>    
+    <%= form.radio_button :reviewrating,'1' %>1<%= form.radio_button :reviewrating,'2' %>2<%= form.radio_button :reviewrating,'3' %>3<%= form.radio_button :reviewrating,'4' %>4<%= form.radio_button :reviewrating,'5' %>5
+   </td></tr>
+    <tr>  <td>
+    <%= form.label :reviewbody %></td><td align="center">
+    <%= form.text_area :reviewbody,:cols => 30, :rows => 5 %>
+ </td>
+ </tr>
+  </table >
+  <div>
+  <%= form.fields_for  :customerreviewtags do |g| %>
+    <%= g.label :tag %></td><td align="center">
+      
+    <%= g.text_field :producttag %>
+<% end %>
+</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,92 @@
+<div class="container" align="center">
+     <div class="row">
+        <div class="col-lg-9">
+          <div class="well sidebar-nav">
+       <b> Set Tag through </b> <%=radio_button_tag('tag_flag','online',true, onClick:"  document.getElementById('offline').style.visibility = 'hidden'; 
+             document.getElementById('online').style.visibility = 'visible';") %>   Online
+            <%=radio_button_tag('tag_flag','offline',false, onClick:"  document.getElementById('online').style.visibility = 'hidden'; 
+             document.getElementById('offline').style.visibility = 'visible';") %>   Offline
+          </div>
+        </div>
+      </div>
+  </div>
+   <div id ="online" style="visibility: visible;justify-content: center;">
+
+<table border = 1 align="center">
+  <tr>New Online Tagcreation   :   <%= link_to 'Cilck Here', new_tagcreation_path %><br/></tr>
+        <tr><th> <i class="glyphicon glyphicon-exclamation-sign"></i> Instructions: </th>
+        </tr>
+        <tr>
+          <td> <ol type ="1">
+            <li>Create a New Tag for productwise</li>
+            <li>List of Suggested Tags available for different categories for Reference</li>
+            <li>Can create upto five tags for each</li>
+           
+          </ol></td>
+        </tr>
+        </table>
+</div>
+<div id ="offline" style="visibility: hidden;justify-content: center;">
+  <div class ="container">
+    <div class="well sidebar-nav"> 
+<h5>Download the Template   :       <i class="glyphicon glyphicon-upload"></i> <%= link_to "Click Here", export_tagcreations_path %> 
+  <br/>
+  <%= form_tag import_tagcreations_path, multipart: true do %>
+       Upload the file :<%= file_field_tag :file %> </h5>
+<br/>
+  <%= submit_tag "Import", :class=> "btn" %>
+
+  </div>
+      <table border = 1 align="center">
+        <tr><th><i class="glyphicon glyphicon-exclamation-sign"></i> Instructions: </th>
+        </tr>
+        <tr>
+          <td> <ol type ="1">
+            <li>Download the Excel Template</li>
+            <li>List of Suggested Tags available for different categories for Reference</li>
+            <li>Fill out the Template with the sheet Custom tag</li>
+            <li>Upload The File</li>
+          </ol></td>
+        </tr>
+        </table>
+    </div>
+  </div>
+<!---------------------------------------------------->
+<p id="notice"><%= notice %></p>
+<div class="list-group">
+<table class="table table-hover" border = 1  >
+  <thead>
+    <tr>
+      <th>Product title</th>
+      <th>Product option1</th>
+      <th>Product option1 value</th>
+     <th>Product option2</th>
+      <th>Product option2 value</th>
+      <th>Product option3</th>
+      <th>Product option3 value</th>
+      <th>Producttag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+   
+  <tbody>
+    <% @tagcreations.each do |tagcreation| %>
+      <tr>
+        <td><%= tagcreation.producttitle %></td>
+        <td><%= tagcreation.productoption %></td>
+        <td><%= tagcreation.productvalue %></td>
+        <td><%= tagcreation.productoption1 %></td>
+        <td><%= tagcreation.productvalue1 %></td>
+        <td><%= tagcreation.productoption2 %></td>
+        <td><%= tagcreation.productvalue2 %></td>
+        <td><%= tagcreation.producttag %></td>
+        <td><%= link_to 'Update', edit_tagcreation_path(tagcreation) %></td>
+        <td><%= link_to 'Delete', tagcreation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+<% end %>
+<%= will_paginate @tagcreations, renderer: BootstrapPagination::Rails  %>

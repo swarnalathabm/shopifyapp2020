@@ -1,0 +1,115 @@
+<%= form_with(model: tagcreation, local: true) do |form| %>
+  <% if tagcreation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tagcreation.errors.count, "error") %> prohibited this tagcreation from being saved:</h2>
+
+      <ul>
+        <% tagcreation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <div class ="container">
+<div class="well sidebar-nav"> 
+<table border = 1>
+  <thead>
+    <tr ><th>  <div class="field">
+    <%= form.label :Product_Title %>
+  </div>
+
+  <th><div class="field">
+    <%= form.label :Product_Option1 %>
+  </div></th>
+
+  <th><div class="field">
+    <%= form.label :Product_Value %>
+  </div></th>
+ <th><div class="field">
+    <%= form.label :Product_Option2 %>
+  </div></th>
+
+  <th><div class="field">
+    <%= form.label :Product_Value %>
+  </div></th> <th><div class="field">
+    <%= form.label :Product_Option3 %>
+  </div></th>
+
+  <th><div class="field">
+    <%= form.label :Product_Value %>
+  </div></th>
+</tr>
+   </thead>
+  <tbody>
+<tr><td>
+  <div class="field">
+  <%= form.collection_select :producttitle ,Productlist.order(:title), :title, :title %>
+</div></td>
+<td><div class="field">
+    <%= form.collection_select :productoption ,Productlist.order(:option1), :option1, :option1 %>
+  </div></td>
+  <td><div class="field">
+    <%= form.collection_select :productvalue ,Productlist.order(:option1val), :option1val, :option1val %>
+  </div></td>
+  <td><div class="field">
+    <%= form.collection_select :productoption1 ,Productlist.order(:option2), :option2, :option2 %>
+  </div></td>
+  <td><div class="field">
+    <%= form.collection_select :productvalue1 ,Productlist.order(:option2val), :option2val, :option2val %>
+  </div></td>
+  <td><div class="field">
+    <%= form.collection_select :productoption2 ,Productlist.order(:option3), :option3, :option3 %>
+  </div></td>
+   <td><div class="field">
+    <%= form.collection_select :productvalue2 ,Productlist.order(:option3val), :option3val, :option3val %>
+  </div></td>
+</tr>
+</tbody>
+</table>
+<br/><br/>  
+ <%= form.label :producttag %> : 
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" type="button" >Add</button>
+  </div>
+   <%= form.text_field :producttag %>
+
+</div>
+
+</div>
+</div>
+  <!---------------------------add del-------------------------------------------------
+  <div class="field">
+<div class="container">
+    <div class="row clearfix">
+      <div class="col-md-12 table-responsive">
+      <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+        <thead>
+          <tr >
+            <th class="text-center">
+            </td> </th>
+              </thead>
+          <tbody>
+            <tr id='addr0' data-id="0" class="hidden">
+            <td data-name="name"><input type="text" name='name0'  placeholder='Name' class="form-control"/>
+
+ <td data-name="del"> <button type = "button" name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'><span aria-hidden="true">×</span></button>
+                        </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    <a id="add_row" class="btn btn-primary float-right">Add Row</a>
+</div>
+
+  </div>
+-----------------end---------------------------------------------->
+
+  <div class="actions" align="right" >
+    <%= form.submit %>
+  </div>
+<div class="actions" align="left"  > 
+   <%= link_to 'Back', tagcreations_path %>   
+  </div>
+<% end %>

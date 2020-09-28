@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyString
+  option1: MyString
+  option2: MyString
+  option3: MyString
+  option1val: MyString
+  option2val: MyString
+  option3val: MyString
+
+two:
+  title: MyString
+  body: MyString
+  option1: MyString
+  option2: MyString
+  option3: MyString
+  option1val: MyString
+  option2val: MyString
+  option3val: MyString

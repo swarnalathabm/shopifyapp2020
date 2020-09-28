@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customerreviews</h1>
+<h2>Refine Your Search : </h2>
+<%= form_for "", url: customerreviews_path, role: "Search", method: :get do %>
+<%= text_field_tag :search, @search_term, placeholder: "Search Title..." %>
+<% end %>
+<br/>
+<div style="align:center">
+    <% @tagcreations.each do |tagcreation| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><th> <%= tagcreation.producttitle %></th></h5>
+    <h6 class="card-subtitle mb-2 text-muted"> 
+     <%= tagcreation.productoption %> : <%= tagcreation.productvalue %>
+         <%= tagcreation.productoption1 %>:  <%= tagcreation.productvalue1 %>
+        <%= tagcreation.productoption2 %>: <%= tagcreation.productvalue2 %>
+        </h6>  
+    <p class="card-text"> 
+        <%= link_to 'New Customerreview', new_customerreview_path(tagcreation) %></td>
+    </tr></p>
+  </div>
+</div>     
+    <% end %>
+  </div>
+      
+
+
+<br>
+<%= will_paginate @tagcreations, renderer: BootstrapPagination::Rails  %>
+

@@ -1,0 +1,7 @@
+<center><h1>Editing Customerreview</h1></center>
+
+<%= render 'form', customerreview: @customerreview %>
+   <%= form.label :publish %>
+    <%= form.select :publish ,["yes","no"] %>
+<%= link_to 'Show', @customerreview %> |
+<%= link_to 'Back', customerreviews_path %>
